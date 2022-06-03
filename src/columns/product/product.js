@@ -69,6 +69,7 @@ const Column = ({ t, formatDate, listCategory, handleEdit, handleDelete }) => {
             onCell: () => ({ style: { paddingTop: '0.25rem', paddingBottom: 0 } }),
          },
          formItem: {
+            // condition: (data, form) => !!data && data.id,
             type: "select",
             rules: [{ type: "required" }],
             list: listCategory,
@@ -93,7 +94,10 @@ const Column = ({ t, formatDate, listCategory, handleEdit, handleDelete }) => {
          },
          formItem: {
             rules: [{ type: "required" },],
-            type: "number"
+            mask: {
+               'alias': 'numeric', 'groupSeparator': ',', 'digitsOptional': false, 'prefix': '$ ',
+               'placeholder': '0',
+            }
          },
       },
       {

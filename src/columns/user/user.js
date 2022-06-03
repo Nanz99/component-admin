@@ -106,7 +106,7 @@ const Column = ({ t, formatDate, listGender, handleEdit, handleDelete }) => {
         render: (text) => text && <i className="las la-check-circle la-2x" />,
       },
       formItem: {
-        condition: (data) => !!data && data.id,
+        condition: (data,form) => !!data && data.id,
         type: "switch",
       },
     },

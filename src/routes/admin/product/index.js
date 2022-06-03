@@ -84,7 +84,10 @@ const Page = () => {
          t, formatDate, listCategory,
       }),
       GetById: ProductService.getById,
-      Post: ProductService.post,
+      Post: (id, values) => { 
+         console.log(id, values)
+         // ProductService.post
+      } ,
       Put: ProductService.put,
       Delete: ProductService.delete,
       widthModal: 600,

@@ -1,12 +1,12 @@
-import {useCallback, useEffect, useState} from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Form, DatePicker, Checkbox, Radio, Switch, Slider } from "antd";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 
 import { useAuth } from "global";
-import {Upload} from "components";
+import { Upload } from "components";
 import { convertFormValue } from "utils";
-import {ColorButton, Editor, SelectTag, Select, TreeSelect, TableTransfer, Password, Mask, Addable} from "./input";
+import { ColorButton, Editor, SelectTag, Select, TreeSelect, TableTransfer, Password, Mask, Addable } from "./input";
 
 const Component = (
   {
@@ -17,11 +17,11 @@ const Component = (
     values = {},
     form,
     readOnly = false,
-    onFirstChange = () => {},
+    onFirstChange = () => { },
     widthLabel = null,
     col = 1,
     checkHidden = false,
-    extendForm = () => {},
+    extendForm = () => { },
     isShowCancel = false,
     extendTopForm = null,
     extendFirstForm = null,
@@ -129,7 +129,7 @@ const Component = (
       // case "media":
       //   return <Media limit={formItem.limit} />;
       case "addable":
-        return <Addable {...formItem}/>
+        return <Addable {...formItem} />
       case "editor":
         return <Editor readOnly={readOnly} />;
       case "color_button":
@@ -173,7 +173,7 @@ const Component = (
           <DatePicker.RangePicker
             format={formatDate + (formItem.showTime ? " HH:mm" : "")}
             disabledDate={(current) => formItem.disabledDate && formItem.disabledDate(current, form)}
-            defaultValue={formItem.initialValues && [formItem.initialValues.start,formItem.initialValues.end]}
+            defaultValue={formItem.initialValues && [formItem.initialValues.start, formItem.initialValues.end]}
             showTime={formItem.showTime}
             disabled={!!formItem.disabled && formItem.disabled(values)}
           />
@@ -467,10 +467,10 @@ const Component = (
       //   </Form.Item>
       // );
       return (
-        item.formItem.type!=="addable"?<Form.Item {...otherProps} className={item.formItem.wrapClassName}>
+        item.formItem.type !== "addable" ? <Form.Item {...otherProps} className={item.formItem.wrapClassName}>
           {generateInput(item.formItem, item, values)}
           {/* {item?.formItem?.additional? (<span className="ant-form-text ml-2">{item.formItem.additional}</span>) : null} */}
-        </Form.Item>:generateInput(item.formItem, item, values));
+        </Form.Item> : generateInput(item.formItem, item, values));
     }
     return null;
   };
@@ -478,7 +478,7 @@ const Component = (
     <div className={'grid gap-x-5'} key={i}>
       {$cols.map(($col, j) => {
         return (
-          <div className={'grid gap-x-5 grid-cols-12 sm:grid-cols-'+(12 / col)} key={j}>
+          <div className={'grid gap-x-5 grid-cols-12 sm:grid-cols-' + (12 / col)} key={j}>
             {$column.map((column, index) => {
               if (
                 index >= ($column.length / col) * $col &&
@@ -486,7 +486,7 @@ const Component = (
               ) {
                 return (
                   <div
-                    className={'col-span-12 sm:col-span-'+(column.formItem.col ? column.formItem.col : 12)}
+                    className={'col-span-12 sm:col-span-' + (column.formItem.col ? column.formItem.col : 12)}
                     key={index}
                   >
                     {generateForm(column, index)}
